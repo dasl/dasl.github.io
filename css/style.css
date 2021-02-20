@@ -69,8 +69,8 @@ footer {
 }
 
 .arrow{
-    bottom: 4em;
-    right: 4em;
+    bottom: 3em;
+    right: 3em;
     position: absolute;
 }
 
@@ -83,4 +83,10 @@ footer {
 }
 .bi-3x {
     font-size: 3em;
+}
+
+.img-avatar{
+    width: 2em;
+    height: 2em;
+    object-fit: cover;
 }

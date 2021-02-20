@@ -1,3 +1,14 @@
+// Init
+var init = e => {
+    const user = $('#usuario')
+    const data = JSON.parse(sessionStorage.getItem('data'));
+    user.html(data.firstName + " " + data.lastName)
+    if(data.profilePictureUrl){
+        $('.avatar').html('<img class="img-avatar rounded-circle" src="'+data.profilePictureUrl+'" alt="'+data.firstName + ' ' + data.lastName+'">')
+    }
+}
+
+init()
 
 // Gráfico - API de Rendimiento de Equipos
 var ctx = document.getElementById('myChart').getContext('2d');

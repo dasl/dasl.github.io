@@ -1,16 +1,6 @@
 // Login.js
 // Validaciones - Requests
 
-// Init setups
-// He creado una sesion para probar la persistencia de las credenciales.
-var existSession = e => {
-    let confirm = sessionStorage.hasOwnProperty('data')
-    if(confirm){
-        window.location.href = './'
-    }
-}
-existSession()
-
 var params = new URLSearchParams(window.location.search)
 console.log(window.location.href)
 if(params.has("error")){
@@ -63,6 +53,7 @@ var sendForm = (e) => {
         })
       })
     .done( msg => {
+        sessionStorage.setItem('logged', true);
         sessionStorage.setItem('data', JSON.stringify(msg));
         window.location.href = "./"
     })
