@@ -9,39 +9,50 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-5">
         <div class="row justify-content-center mt-5">
             <div class="col-md-4 bg-dark-custom rounded p-3 shadow">
                 <h1 class="text-center my-3">Login</h1>
                 <div class="row mx-0">
-                    <form class="col-md-12 mb-2">
+                    <form id="formulario" class="col-md-12 mb-2 needs-validation" novalidate>
                         <div class="form-group">
-                            <label for="user">Username:</label>
-                            <input id="user" type="text" class="form-control" placeholder="Username">
+                            <label for="user">Usuario:</label>
+                            <input id="user" name="user" type="text" class="form-control"  placeholder="Usuario" title="Ingrese un nombre de usuario." required>
+                            <small id="userValidate" class="form-text text-danger d-none">Debes ingresar un usuario.</small>
                         </div>
                         <div class="form-group">
-                            <label for="pass">Password:</label>
-                            <input id="pass" type="text" class="form-control" placeholder="Password">
+                            <label for="pass">Contraseña:</label>
+                            <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" autocomplete="on" title="Ingrese una contraseña." required>
+                            <small id="passValidate" class="form-text text-danger d-none">Debes ingresar una contraseña.</small>
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="check">
-                            <label class="form-check-label" for="check">Check me out</label>
+                            <label class="form-check-label" for="check">Recordarme</label>
                           </div>
                         <div class="form-group text-right">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <button id="enviar" type="button" class="btn btn-primary">Ingresar</button>
                         </div>
                     </form>
+ 
                 </div>
             </div>
+                      
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="custom-alert col-md-4 alert alert-danger alert-dismissible fade" role="alert">
+                Usuario o contraseña incorrecto
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>  
         </div>
     </div>
 
 
-
 <!-- Javascript  -->
-    <script src="/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>s
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>
