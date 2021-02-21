@@ -1,4 +1,10 @@
-// Login.js
+/*!
+  * Login.js 
+  * Gestiona las validaciones y la creación de las sesiones de prueba.
+  * Author: Diego Sandoval Leiva - dasl.cl
+  * Licensed under MIT 
+  */
+
 // Validaciones - Requests
 
 var params = new URLSearchParams(window.location.search)
