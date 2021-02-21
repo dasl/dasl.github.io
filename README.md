@@ -5,7 +5,7 @@ Sitio Web desarollado para la prueba técnica de TIMining.
 
 ## Web Approach
 
-*  Mi idea fue crear una web minimalista, utilizando los principales recursos de Bootstrap. Utilizando una paleta de colores pasteles, y los ya pertenencientes al framework.
+*  Mi idea fue crear una web minimalista, a partir de los recursos de Bootstrap. Utilizando una paleta de colores pasteles, y los ya pertenencientes al framework.
 
 *  Dado los requerimientos del desafío opté por desarrollar sólo con Jquery como recurso para un JS más bien vanilla. Sin embargo, ante un eventual extensión del sitio, el refactor a un framework robusto, como React sería la solución más óptima. 
 
