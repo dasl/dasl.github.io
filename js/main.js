@@ -15,30 +15,21 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            label: 'Rendimiento de Equipos',
+            data: [],
+            backgroundColor: '#469fffbd',
             borderWidth: 1
         }]
     },
     options: {
+        legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontSize: 15
+            }
+        },
         scales: {
             yAxes: [{
                 ticks: {
@@ -49,6 +40,29 @@ var myChart = new Chart(ctx, {
     }
 });
 
+// updateChart: Ejecuta el ajax, obteniendo la data del API de Performance
+function updateChart(){
+    $.ajax({
+        method: "GET",
+        url: 'https://frontend-excercise.dt.timlabtesting.com/ops/device/performance',
+      })
+    .done( msg => {
+        myChart.data.datasets[0].data = msg.values
+        myChart.data.labels = msg.devices
+        myChart.update()
+    })
+    .fail( e => {
+        $(".custom-alert").show()
+    }); 
+}
+
+// Obtener data cada 5 segundos
+function executeChart(){
+    updateChart();
+    setInterval(updateChart, 5000);
+}
+
+executeChart()
 
 // Footer rigths
 const rights = $('#dateRights')
