@@ -6,6 +6,8 @@ var init = e => {
     if(data.profilePictureUrl){
         $('.avatar').html('<img class="img-avatar rounded-circle" src="'+data.profilePictureUrl+'" alt="'+data.firstName + ' ' + data.lastName+'">')
     }
+    executeChart()
+    getDevices()
 }
 
 init()
@@ -51,9 +53,6 @@ function updateChart(){
         myChart.data.labels = msg.devices
         myChart.update()
     })
-    .fail( e => {
-        $(".custom-alert").show()
-    }); 
 }
 
 // Obtener data cada 5 segundos
@@ -62,7 +61,31 @@ function executeChart(){
     setInterval(updateChart, 5000);
 }
 
-executeChart()
+
+// getDevices: Obtiene un listado de los equipos disponibles desde la API
+function getDevices(){
+    $.ajax({
+        method: "GET",
+        url: 'https://frontend-excercise.dt.timlabtesting.com/ops/device/list',
+      })
+    .done( msg => {
+        let devices = msg.devices;
+        let nr_device = 0;
+        devices.forEach(element => {
+            $(`
+            <li class="list-group-item">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="${nr_device}" id="${nr_device}">
+                <label class="form-check-label" for="${nr_device}">
+                    ${element}
+                </label>
+                </div>
+            </li>  
+          `).insertAfter('#devicesTitle')
+          nr_device++;
+        });
+    })
+}
 
 // Footer rigths
 const rights = $('#dateRights')
