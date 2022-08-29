@@ -7,7 +7,7 @@ Sitio Web desarollado para la prueba técnica de TIMining.
 
 *  Mi idea fue crear una web minimalista, a partir de los recursos de Bootstrap. Utilizando una paleta de colores pasteles, y los ya pertenencientes al framework.
 
-*  Dado los requerimientos del desafío opté por desarrollar sólo con Jquery como recurso para un JS más bien vanilla. Sin embargo, ante un eventual extensión del sitio, el refactor a un framework robusto, como React sería la solución más óptima. 
+*  Dado los requerimientos del desafío, opté por desarrollar sólo con Jquery como recurso para un JS más bien vanilla. Sin embargo, ante un eventual extensión del sitio, el refactor a un framework robusto, como React sería la solución más óptima. 
 
 
 ## Construido con 🛠️
@@ -19,7 +19,7 @@ Sitio Web desarollado para la prueba técnica de TIMining.
 
 ## Autores ✒️
 
-* **Diego Sandoval** - *Desarrolador Front-end* 
+* **Diego Sandoval** - *Desarrollador Front-end* 
 
 
 ## Licencia 📄
